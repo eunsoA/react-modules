@@ -8,6 +8,7 @@ import {
   ModalType,
   ModalSize,
   ModalCloseType,
+  ModalColorType,
 } from './types/modalTypes';
 
 interface ModalProps extends ModalChildrenProps {
@@ -16,6 +17,7 @@ interface ModalProps extends ModalChildrenProps {
   modalSize?: ModalSize;
   titleText?: string;
   closeType?: ModalCloseType;
+  colorType?: ModalColorType;
 }
 
 const Modal = ({
@@ -25,6 +27,7 @@ const Modal = ({
   modalSize = 'medium',
   titleText = '',
   closeType = 'none',
+  colorType,
 }: ModalProps) => {
   const { isModalOpened, closeModalHandler } = useModalContext();
 
@@ -56,6 +59,7 @@ const Modal = ({
             modalSize={modalSize}
             titleText={titleText}
             closeType={closeType}
+            colorType={colorType}
           >
             {children}
           </ModalBox>

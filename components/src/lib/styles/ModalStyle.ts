@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
-import { ModalPositionProps, ModalPositionAndSizeProps } from '../types/modalTypes';
+import {
+  ModalPositionProps,
+  ModalPositionAndSizeProps,
+  ModalColorProps,
+} from '../types/modalTypes';
 
 export const ModalContainer = styled.div<ModalPositionProps>`
   width: 100%;
@@ -70,8 +74,9 @@ export const ModalHeaderContainer = styled.div`
   align-items: center;
 `;
 
-export const ModalBottomCloseBtn = styled.div`
-  color: #8b95a1;
+export const ModalBottomCloseBtn = styled.div<ModalColorProps>`
+  color: ${({ colorType }) => (colorType === 'black' ? '#ffffff' : '#8b95a1')};
+  background-color: ${({ colorType }) => (colorType === 'black' ? '#333333' : 'transparent')};
   text-align: center;
   font-size: 15px;
   font-style: normal;
@@ -79,6 +84,7 @@ export const ModalBottomCloseBtn = styled.div`
   line-height: normal;
   padding: 10px;
   cursor: pointer;
+  border-radius: ${({ colorType }) => (colorType === 'black' ? '4px' : '0')};
 `;
 
 export const ModalButtons = styled.div`

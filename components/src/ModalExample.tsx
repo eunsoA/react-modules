@@ -1,6 +1,7 @@
 import { Modal, ModalProvider } from './lib';
 import ModalOpenButton from './ModalOpenButton';
 import { ReactNode } from 'react';
+import { ModalColorType } from './lib/types/modalTypes';
 
 interface ModalExampleProps {
   type: string;
@@ -8,6 +9,7 @@ interface ModalExampleProps {
   modalSize?: 'small' | 'medium' | 'large';
   modalType?: 'default' | 'alert' | 'confirm' | 'prompt';
   closeType: 'top' | 'bottom' | 'none';
+  colorType?: ModalColorType;
   titleText: string;
   onClose?: () => void;
   children: ReactNode;
@@ -19,6 +21,7 @@ function ModalExample({
   modalSize,
   modalType = 'default',
   closeType,
+  colorType,
   titleText,
   onClose,
   children,
@@ -31,6 +34,7 @@ function ModalExample({
         modalSize={modalSize}
         modalType={modalType}
         closeType={closeType}
+        colorType={colorType}
         titleText={titleText}
       >
         {children}

@@ -6,12 +6,14 @@ import {
   ModalPositionAndSizeProps,
   ModalType,
   ModalCloseType,
+  ModalColorType,
 } from './types/modalTypes';
 
 interface ModalBoxProps extends ModalChildrenProps, ModalPositionAndSizeProps {
   modalType: ModalType;
   titleText: string;
   closeType: ModalCloseType;
+  colorType?: ModalColorType;
 }
 
 const ModalBox = ({
@@ -21,6 +23,7 @@ const ModalBox = ({
   closeType,
   modalType,
   titleText,
+  colorType,
 }: ModalBoxProps) => {
   const { closeModalHandler, onClose } = useModalContext();
 
@@ -48,7 +51,11 @@ const ModalBox = ({
         </ModalButtons>
       );
     } else if (closeType === 'bottom') {
-      return <ModalBottomCloseBtn onClick={closeModalHandler}>닫기</ModalBottomCloseBtn>;
+      return (
+        <ModalBottomCloseBtn colorType={colorType} onClick={closeModalHandler}>
+          닫기
+        </ModalBottomCloseBtn>
+      );
     }
   };
 

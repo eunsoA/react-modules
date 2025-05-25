@@ -31,6 +31,7 @@ function ModalContents() {
         type="하단(하단 닫기)"
         modalPosition="bottom"
         closeType="bottom"
+        colorType="black"
         titleText="titleText"
       >
         <p style={{ color: 'black' }}>Test!!!!!!</p>
